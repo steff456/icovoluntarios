@@ -1,25 +1,155 @@
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>icovoluntarios</title>
+
+  <!-- LINKS -->
+  <link rel="Stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="Stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
+  <link rel="Stylesheet" href="parallax.css">
+  <link rel="Stylesheet" href="main.css">
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  {{> menu}}
+  {{> title}}
+  {{> intro}}
+  {{> vol1}}
+  {{> form}}
 
-  {{> hello}}
-  {{> info}}
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="menu">
+  <header>
+    <div class="navegacion" id="iefix">
+      <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #07aa30;">
+        <img src="img/ANDAR.png" width="100" height="40" alt="">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="main.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">¡Inscribete!</a>
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Ingresar
+        </button>
+      </nav>
+    </div> <!-- .navegacion -->
+  </header>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="title">
+  <div class="container-fluid">
+    <div class="main-title"></div>
+  </div>
+</template>
+
+<template name="form">
+  <form class="form-horizontal">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Información Icovoluntarios</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="apellidos">Apellidos</label>
+        <div class="col-md-4">
+          <input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control input-md" required="">
+          <span class="help-block">Ingrese aquí sus apellidos</span>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="nombres">Nombres</label>
+        <div class="col-md-4">
+          <input id="nombres" name="nombres" type="text" placeholder="Nombres" class="form-control input-md" required="">
+          <span class="help-block">Ingrese aquí sus nombres</span>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="genero">Género</label>
+        <div class="col-md-4">
+          <select id="genero" name="genero" class="form-control">
+            <option value="1">Hombre</option>
+            <option value="2">Mujer</option>
+            <option value="3">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="email">Email</label>
+        <div class="col-md-4">
+          <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
+          <span class="help-block">Ingrese aquí su correo electrónico</span>
+        </div>
+      </div>
+
+      <!-- Multiple Checkboxes -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="voluntariados">Voluntariados de interés</label>
+        <div class="col-md-4">
+          <div class="checkbox">
+            <label for="voluntariados-0">
+              <input type="checkbox" name="voluntariados" id="voluntariados-0" value="1">
+              Alfabetización digital
+            </label>
+          </div>
+          <div class="checkbox">
+            <label for="voluntariados-1">
+              <input type="checkbox" name="voluntariados" id="voluntariados-1" value="2">
+              Programa "Voluntariado Andes-Icononzo"
+            </label>
+          </div>
+          <div class="checkbox">
+            <label for="voluntariados-2">
+              <input type="checkbox" name="voluntariados" id="voluntariados-2" value="3">
+              Compostaje municipal
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</template>
+
+<template name="intro">
+  <div class="container-fluid">
+    <h1>Icovoluntarios</h1>
+    <div class="text-sec">
+      <p>Somos una plataforma que desea conectar nuevos proyectos de desarrollo social, cultural y económico en Icononzo, municipio perteneciente al departamento del Tolima, con voluntarios que deseen poner sus habilidades y capacidades al servicio de los demás en favor de construir una Colombia mejor.<br><br>Por medio de Icovoluntarios buscamos ayudar a esta región en el posconflito colombiano, pues este lugar fue elegido como un Espacio Territorial de Capacitación y Reincorporación (ETCR), cuyo objetivo es ayudar a excombatientes a reincorporarse efectivamente a la vida social, económica y política del país.</p>
+    </div>
+    <div class="parall-1"> </div>
+  </div>
+</template>
+
+<template name="vol1">
+  <div class="container-fluid">
+    <h2>Alfabetización Digital</h2>
+    <div class="text-sec">
+      <p>I am a 24 (soon to be 25) years old colombian, university student who is looking to help as many people as I am capable to reach. My main goal in life is to let people know that every problem and every situation has a wayout, we just need to keep calm, find our inner strenght and fight for who we are, who we want to be and for those who we love.<br><br> That is why my motto is "We will make everything all right" and my inner image, something like your inner animal, is a Spartan Warrior, and I am working my body and mind to become one.</p>
+    </div>
+    <div class="parall-2"> </div>
+  </div>
 </template>
