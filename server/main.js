@@ -1,7 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
-
-    Modules.server.configureOAuthProviders();
-
+  // code to run on server at startup
 });
