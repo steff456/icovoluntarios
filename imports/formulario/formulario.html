@@ -1,0 +1,15 @@
+<head>
+  <title>formularios</title>
+</head> 
+
+<body>
+  <ul>
+    {{#each formularios}}
+      {{> formulario}}
+    {{/each}}
+  </ul>
+</body>
+
+<template name="formulario">
+  <li>{{title}}</li>
+</template>
