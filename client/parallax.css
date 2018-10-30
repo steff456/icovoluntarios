@@ -18,16 +18,17 @@
 .parall-1 {
   background-image: url("img/icononzo.png");
   min-height: 500px;
+  background-size: contain;
 }
 
 .parall-2 {
-  background-image: url("icononzo.png");
+  background-image: url("img/alfa.jpg");
   min-height: 500px;
   background-size: auto;
 }
 
 .parall-3 {
-  background-image: url();
+  background-image: url("img/volunteer.jpg");
   min-height: 500px;
 }
 
@@ -50,7 +51,7 @@
 }
 
 .parall-7 {
-  background-image: url(;
+  background-image: url();
   min-height: 500px;
 }
 

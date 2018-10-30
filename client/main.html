@@ -16,6 +16,8 @@
   {{> title}}
   {{> intro}}
   {{> vol1}}
+  {{> vol2}}
+  {{> vol3}}
   {{> form}}
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -44,10 +46,6 @@
             </li>
           </ul>
         </div>
-
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Ingresar
-        </button>
       </nav>
     </div> <!-- .navegacion -->
   </header>
@@ -60,78 +58,92 @@
 </template>
 
 <template name="form">
-  <form class="form-horizontal">
-    <fieldset>
+  <div class="container-fluid formulario">
+    <form class="form-horizontal">
+      <fieldset>
 
-      <!-- Form Name -->
-      <legend>Información Icovoluntarios</legend>
-
-      <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="apellidos">Apellidos</label>
-        <div class="col-md-4">
-          <input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control input-md" required="">
-          <span class="help-block">Ingrese aquí sus apellidos</span>
-        </div>
-      </div>
-
-      <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="nombres">Nombres</label>
-        <div class="col-md-4">
-          <input id="nombres" name="nombres" type="text" placeholder="Nombres" class="form-control input-md" required="">
-          <span class="help-block">Ingrese aquí sus nombres</span>
-        </div>
-      </div>
-
-      <!-- Select Basic -->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="genero">Género</label>
-        <div class="col-md-4">
-          <select id="genero" name="genero" class="form-control">
-            <option value="1">Hombre</option>
-            <option value="2">Mujer</option>
-            <option value="3">Otro</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="email">Email</label>
-        <div class="col-md-4">
-          <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
-          <span class="help-block">Ingrese aquí su correo electrónico</span>
-        </div>
-      </div>
-
-      <!-- Multiple Checkboxes -->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="voluntariados">Voluntariados de interés</label>
-        <div class="col-md-4">
-          <div class="checkbox">
-            <label for="voluntariados-0">
-              <input type="checkbox" name="voluntariados" id="voluntariados-0" value="1">
-              Alfabetización digital
-            </label>
-          </div>
-          <div class="checkbox">
-            <label for="voluntariados-1">
-              <input type="checkbox" name="voluntariados" id="voluntariados-1" value="2">
-              Programa "Voluntariado Andes-Icononzo"
-            </label>
-          </div>
-          <div class="checkbox">
-            <label for="voluntariados-2">
-              <input type="checkbox" name="voluntariados" id="voluntariados-2" value="3">
-              Compostaje municipal
-            </label>
+        <!-- Form Name -->
+        <legend>Información Icovoluntarios</legend>
+        <p>Ingrese aquí su información para el voluntariado al que desea pertenecer.</p>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="apellidos">Apellidos</label>
+          <div class="col-md-4">
+            <input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control input-md" required="">
+            <span class="help-block">Ingrese aquí sus apellidos</span>
           </div>
         </div>
-      </div>
 
-    </fieldset>
-  </form>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="nombres">Nombres</label>
+          <div class="col-md-4">
+            <input id="nombres" name="nombres" type="text" placeholder="Nombres" class="form-control input-md" required="">
+            <span class="help-block">Ingrese aquí sus nombres</span>
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="genero">Género</label>
+          <div class="col-md-4">
+            <select id="genero" name="genero" class="form-control">
+              <option value="1">Hombre</option>
+              <option value="2">Mujer</option>
+              <option value="3">Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="email">Email</label>
+          <div class="col-md-4">
+            <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
+            <span class="help-block">Ingrese aquí su correo electrónico</span>
+          </div>
+        </div>
+
+        <!-- File Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="filebutton">Hoja de vida</label>
+          <div class="col-md-4">
+            <input id="filebutton" name="filebutton" class="input-file" type="file">
+          </div>
+        </div>
+
+        <!-- Multiple Checkboxes -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="voluntariados">Voluntariados de interés</label>
+          <div class="col-md-4">
+            <div class="checkbox">
+              <label for="voluntariados-0">
+                <input type="checkbox" name="voluntariados" id="voluntariados-0" value="1">
+                Alfabetización digital
+              </label>
+            </div>
+            <div class="checkbox">
+              <label for="voluntariados-1">
+                <input type="checkbox" name="voluntariados" id="voluntariados-1" value="2">
+                Programa "Voluntariado Andes-Icononzo"
+              </label>
+            </div>
+            <div class="checkbox">
+              <label for="voluntariados-2">
+                <input type="checkbox" name="voluntariados" id="voluntariados-2" value="3">
+                Compostaje municipal
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" name="button">Enviar</button>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
 </template>
 
 <template name="intro">
@@ -148,8 +160,35 @@
   <div class="container-fluid">
     <h2>Alfabetización Digital</h2>
     <div class="text-sec">
-      <p>I am a 24 (soon to be 25) years old colombian, university student who is looking to help as many people as I am capable to reach. My main goal in life is to let people know that every problem and every situation has a wayout, we just need to keep calm, find our inner strenght and fight for who we are, who we want to be and for those who we love.<br><br> That is why my motto is "We will make everything all right" and my inner image, something like your inner animal, is a Spartan Warrior, and I am working my body and mind to become one.</p>
+      <p>La reincorporación a la vida social y laboral son importantes para un posconflicto exitoso, es por ello que los excombatientes necesitan aprender las herramientas adecuadas para poder lograrlo. El programa de Alfabetización Digital consiste en enseñarle a los excombatientes el uso de herramientas digitales de uso diario, como lo son los programas pertenecientes a la suite de Microsoft Office: Word, Excel, PowerPoint, entre otros.<br><br>Se un profesor y ayuda a las personas que te necesitan para construir una Colombia donde realmente nos ayudamos los unos a los otros y deseamos que todos salgamos adelante.
+      </p>
     </div>
     <div class="parall-2"> </div>
+  </div>
+</template>
+
+<template name="vol2">
+  <div class="container-fluid">
+    <h2>Andes - Icononzo</h2>
+    <div class="text-sec">
+      <p>Los compromisos realizados por la Universidad de los Andes con el posconflicto colombiano no pueden dejarse de lado, y más aún, de parte de aquellas personas que son su alma y corazón: sus estudiantes. Es por ello que el programa “Voluntariado Andes-Icononzo” busca que los estudiantes participen como voluntarios, de manera presencial o virtual, para que pongan a disposición de toda la comunidad de Icononzo sus conocimientos y habilidades, con el fin de desarrollar nuevos proyectos en la zona que permitan aumentar el nivel educativo de sus habitantes y aumentar sus alternativas económicas.</p>
+    </div>
+    <div class="parall-3"> </div>
+  </div>
+</template>
+
+<template name="vol3">
+  <div class="container-fluid">
+    <h2>Compostaje municipal</h2>
+    <div class="text-sec">
+      <p>El municipio de Icononzo presenta problemas con la cantidad de residuos sólidos que están produciendo, pues no cuentan con un plan eficiente para su recolección y adecuada disposición de los mismos. Sin embargo, el biorreactor de Cortolima puede ser una solución interesante. Aumentar su capacidad y flujos de entrada para producir composta a partir de los residuos orgánicos es una alternativa viable para que los campesinos de la zona puedan beneficiarse de abono a muy bajo costo, e incluso gratis. La cooperación de investigadores e ingenieros que posean interés en el tema es vital para que los pobladores puedan tener un ambiente más seguro, más limpio y más sostenible.</p>
+    </div>
+    <div class="parall-4"> </div>
+  </div>
+</template>
+
+<template name="preguntas">
+  <div class="container-fluid preguntas">
+
   </div>
 </template>

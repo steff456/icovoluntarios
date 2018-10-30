@@ -66,6 +66,12 @@ div.container-fluid div.main-title {
   text-transform: uppercase;
   color: #474350;
 }
+form div.form-group{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
 h1 {
   text-align: center;
   font-weight: bold;
@@ -83,12 +89,15 @@ p {
   text-align: justify;
 }
 .text-sec {
-  /* opacity: 0; */
+  /*opacity: 0;*/
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 30px;
   /* background-color: #174957; */
   color: #474350;
+}
+legend, form label.control-label{
+  font-weight: Bold;
 }
 
 @media only screen and (max-device-width: 1024px) {
