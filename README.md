@@ -35,7 +35,7 @@ https://mchernandez1.github.io/
 ### Others
 
   #### Screenshot
-  ![Foto](imagen.JPG)
+  ![Foto](BDP.PNG)
 
   #### MIT License
   This project is licensed under the MIT License - see the LICENSE.md file for details
