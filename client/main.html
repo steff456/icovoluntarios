@@ -2,27 +2,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>icovoluntarios</title>
+  <title>Bandera de Paz</title>
 
   <!-- LINKS -->
-  <link rel="Stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="Stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
-  <link rel="Stylesheet" href="parallax.css">
+  <script src="https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js"></script>
+  <link href="https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css" rel="stylesheet" role="link"/>
+  <link rel="Stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" role="link">
+  <link rel="Stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css role="link">
   <link rel="Stylesheet" href="main.css">
+
 </head>
 
 <body>
-
-  {{> menu}}
   {{> title}}
-  {{> intro}}
-  {{> vol1}}
-  {{> vol2}}
-  {{> vol3}}
-  {{> form}}
-  {{> scheduler}}
 
-  <div id="render-target"></div>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -30,12 +23,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
-<template name="menu">
-  <header>
+<template name="ApplicationLayout">
+  <header role="banner">
     <div class="navegacion" id="iefix">
-      <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #07aa30;">
-        <img src="img/ANDAR.png" width="100" height="40" alt="">
-
+      <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #95D37E;">
+        <a href="/" role="link">
+          <img src="img/white-flag.png" width="40" height="40" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,25 +37,50 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="main.html">Inicio</a>
+              <a class="nav-link" href="/mapa" role="link">Mapa</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">¡Inscribete!</a>
+              <a class="nav-link" href="/proyectos" role="link">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/enlaces" role="link">Enlaces</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nosotros" role="link">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contactanos" role="link">Contactanos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/inscribete" role="link">¡Inscribete!</a>
             </li>
           </ul>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Ingresar
+        </button>
       </nav>
     </div> <!-- .navegacion -->
   </header>
+
+  <article>
+    {{> yield}}
+  </article>
+
+  <footer>
+    {{> yield "footer"}}
+  </footer>
 </template>
 
 <template name="title">
   <div class="container-fluid">
-    <div class="main-title"></div>
+    <div class="main-title">
+      <img src="img/banderaPaz.PNG" alt="Quién es el equipo">
+    </div>
   </div>
 </template>
 
-<template name="form">
+<template name="inscribete">
   <div class="container-fluid formulario">
     <form class="form-horizontal">
       <fieldset>
@@ -74,7 +93,6 @@
           <label class="col-md-4 control-label" for="apellidos">Apellidos</label>
           <div class="col-md-4">
             <input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control input-md" required="">
-            <span class="help-block">Ingrese aquí sus apellidos</span>
           </div>
         </div>
 
@@ -83,7 +101,6 @@
           <label class="col-md-4 control-label" for="nombres">Nombres</label>
           <div class="col-md-4">
             <input id="nombres" name="nombres" type="text" placeholder="Nombres" class="form-control input-md" required="">
-            <span class="help-block">Ingrese aquí sus nombres</span>
           </div>
         </div>
 
@@ -104,7 +121,6 @@
           <label class="col-md-4 control-label" for="email">Email</label>
           <div class="col-md-4">
             <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
-            <span class="help-block">Ingrese aquí su correo electrónico</span>
           </div>
         </div>
 
@@ -122,19 +138,19 @@
           <div class="col-md-4">
             <div class="checkbox">
               <label for="voluntariados-0">
-                <input type="checkbox" name="voluntariados" id="voluntariados-0" value="1">
+                <input type="checkbox" name="voluntariados" id="voluntariados-0" value="1" aria-checked="true">
                 Alfabetización digital
               </label>
             </div>
             <div class="checkbox">
               <label for="voluntariados-1">
-                <input type="checkbox" name="voluntariados" id="voluntariados-1" value="2">
+                <input type="checkbox" name="voluntariados" id="voluntariados-1" value="2" aria-checked="true">
                 Programa "Voluntariado Andes-Icononzo"
               </label>
             </div>
             <div class="checkbox">
               <label for="voluntariados-2">
-                <input type="checkbox" name="voluntariados" id="voluntariados-2" value="3">
+                <input type="checkbox" name="voluntariados" id="voluntariados-2" value="3" aria-checked="true">
                 Compostaje municipal
               </label>
             </div>
@@ -152,47 +168,109 @@
 
 <template name="intro">
   <div class="container-fluid">
-    <h1>Icovoluntarios</h1>
     <div class="text-sec">
-      <p>Somos una plataforma que desea conectar nuevos proyectos de desarrollo social, cultural y económico en Icononzo, municipio perteneciente al departamento del Tolima, con voluntarios que deseen poner sus habilidades y capacidades al servicio de los demás en favor de construir una Colombia mejor.<br><br>Por medio de Icovoluntarios buscamos ayudar a esta región en el posconflito colombiano, pues este lugar fue elegido como un Espacio Territorial de Capacitación y Reincorporación (ETCR), cuyo objetivo es ayudar a excombatientes a reincorporarse efectivamente a la vida social, económica y política del país.</p>
+      <p>Somos una plataforma que desea conectar nuevos proyectos de desarrollo social, cultural y económico en Icononzo, municipio perteneciente al departamento del Tolima, con voluntarios que deseen poner sus habilidades y capacidades al servicio de los demás en favor de construir una Colombia mejor.<br><br>Por medio de Bandera de Paz buscamos ayudar a esta región en el posconflito colombiano, pues este lugar fue elegido como un Espacio Territorial de Capacitación y Reincorporación (ETCR), cuyo objetivo es ayudar a excombatientes a reincorporarse efectivamente a la vida social, económica y política del país.</p>
     </div>
-    <div class="parall-1"> </div>
   </div>
 </template>
 
-<template name="vol1">
-  <div class="container-fluid">
-    <h2>Alfabetización Digital</h2>
+<template name="proyectos">
+  <div class="container-fluid-proyectos">
     <div class="text-sec">
+      <h2>Alfabetización Digital</h2>
       <p>La reincorporación a la vida social y laboral son importantes para un posconflicto exitoso, es por ello que los excombatientes necesitan aprender las herramientas adecuadas para poder lograrlo. El programa de Alfabetización Digital consiste en enseñarle a los excombatientes el uso de herramientas digitales de uso diario, como lo son los programas pertenecientes a la suite de Microsoft Office: Word, Excel, PowerPoint, entre otros.<br><br>Se un profesor y ayuda a las personas que te necesitan para construir una Colombia donde realmente nos ayudamos los unos a los otros y deseamos que todos salgamos adelante.
       </p>
     </div>
-    <div class="parall-2"> </div>
-  </div>
-</template>
-
-<template name="vol2">
-  <div class="container-fluid">
-    <h2>Andes - Icononzo</h2>
     <div class="text-sec">
+      <br><h2>Andes - Icononzo</h2><br>
       <p>Los compromisos realizados por la Universidad de los Andes con el posconflicto colombiano no pueden dejarse de lado, y más aún, de parte de aquellas personas que son su alma y corazón: sus estudiantes. Es por ello que el programa “Voluntariado Andes-Icononzo” busca que los estudiantes participen como voluntarios, de manera presencial o virtual, para que pongan a disposición de toda la comunidad de Icononzo sus conocimientos y habilidades, con el fin de desarrollar nuevos proyectos en la zona que permitan aumentar el nivel educativo de sus habitantes y aumentar sus alternativas económicas.</p>
     </div>
-    <div class="parall-3"> </div>
-  </div>
-</template>
-
-<template name="vol3">
-  <div class="container-fluid">
-    <h2>Compostaje municipal</h2>
     <div class="text-sec">
+      <h2>Compostaje municipal</h2>
       <p>El municipio de Icononzo presenta problemas con la cantidad de residuos sólidos que están produciendo, pues no cuentan con un plan eficiente para su recolección y adecuada disposición de los mismos. Sin embargo, el biorreactor de Cortolima puede ser una solución interesante. Aumentar su capacidad y flujos de entrada para producir composta a partir de los residuos orgánicos es una alternativa viable para que los campesinos de la zona puedan beneficiarse de abono a muy bajo costo, e incluso gratis. La cooperación de investigadores e ingenieros que posean interés en el tema es vital para que los pobladores puedan tener un ambiente más seguro, más limpio y más sostenible.</p>
     </div>
-    <div class="parall-4"> </div>
   </div>
 </template>
 
-<template name="preguntas">
-  <div class="container-fluid preguntas">
+<template name="nosotros">
+    <div class="container">
+      <h2>¿Quiénes somos?</h2>
+      <img src="img/quienesSomos.PNG" alt="Quién es el equipo">
+    </div>
+</template>
 
+<template name="contactanos">
+  <div class="container-fluid-contacto">
+    <div class="container">
+
+    </div>
+    <div class="container">
+
+    </div>
   </div>
+</template>
+
+<template name="enlaces">
+  <h2>Nuestros principales aliados</h2>
+  <div class="container-fluid-enlaces1">
+    <div class="imgEnlace">
+      <a href="https://uniandes.edu.co/"><img src="img/universidadAndes.png" alt="uniandes" width="600" height="200" role="link"></a>
+    </div>
+    <div class="imgEnlace">
+      <a href="https://ingenieria.uniandes.edu.co/Paginas/Noticias.aspx?nid=279" role="link"><img src="img/PMDI-electiva-proyecto-multidisciplinario.jpg" alt="PMDI" width="600" height="200"></a>
+    </div>
+  </div>
+  <br>
+  <h2>Nuestros archivos</h2>
+  <div class="container-fluid-enlaces2">
+    <div class="type-2">
+      <a href="files/Pedgogia_como vamos en la fase de CdP_UAndes.pdf" download class="btn btn-1" role="link">
+        <span class="txt">¿Cómo vamos?</span>
+        <span class="round"><i class="fa fa-chevron-right"></i></span>
+      </a>
+    </div>
+    <div class="type-2">
+      <a href="files/Presentación rueda de prensa Julio 6 2017.pdf" download class="btn btn-1" role="link">
+        <span class="txt">Presentación</span>
+        <span class="round"><i class="fa fa-chevron-right"></i></span>
+      </a>
+    </div>
+    <div class="type-2">
+      <a href="files/Reintegración vs Reincorporación.pdf" download class="btn btn-1" role="link">
+        <span class="txt">Reintegración</span>
+        <span class="round"><i class="fa fa-chevron-right"></i></span>
+      </a>
+    </div>
+  </div>
+</template>
+
+<template name="credits">
+  <div>Icons made by <a href="https://www.flaticon.com/authors/rami-mcmin" title="Rami McMin" role="link">Rami McMin</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon" role="link">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank" role="link">CC 3.0 BY</a></div>
+</template>
+
+<template name="mapa">
+  <div id='map-leaflet' class='map'> </div>
+
+  <script>
+    L.mapbox.accessToken = "pk.eyJ1IjoibWFyaWFjYW1pbGEyIiwiYSI6ImNqcGF0cmF0ZDAzZngzd29mdDh3d2t4NHUifQ.Q6g4saAcNs6EBl3B6C3RPA";
+    var mapLeaflet = L.mapbox.map("map-leaflet", "mapbox.light").setView([4.1262499, -74.5182948], 6);
+    L.marker([1.5263638, -75.3948839]).addTo(mapLeaflet);
+    L.marker([2.7966789, -76.4901478]).addTo(mapLeaflet);
+    L.marker([0.50492, -76.5177007]).addTo(mapLeaflet);
+    L.marker([1.7874336, -78.7997743]).addTo(mapLeaflet);
+    L.marker([2.1185564, -76.9886888]).addTo(mapLeaflet);
+    L.marker([3.0133404, -76.6512072]).addTo(mapLeaflet);
+    L.marker([3.2016235, -76.3543144]).addTo(mapLeaflet);
+    L.marker([3.096671, -76.1270337]).addTo(mapLeaflet);
+    L.marker([7.4383885, -77.1197302]).addTo(mapLeaflet);
+    L.marker([6.9525902, -76.5710588]).addTo(mapLeaflet);
+    L.marker([7.172607, -75.7734347]).addTo(mapLeaflet);
+    L.marker([7.0735619, -75.1560417]).addTo(mapLeaflet);
+    L.marker([6.9840403, -74.8301918]).addTo(mapLeaflet);
+    L.marker([7.0293345, -71.4382312]).addTo(mapLeaflet);
+    L.marker([8.642356, -72.7412088]).addTo(mapLeaflet);
+    L.marker([10.387819, -73.1804268]).addTo(mapLeaflet);
+    L.marker([10.8402884, -72.938896]).addTo(mapLeaflet);
+    mapLeaflet.scrollWheelZoom.disable();
+  </script>
 </template>
