@@ -61,17 +61,19 @@ class App extends Component {
 
  render() {
   return (
+    // Usar destructuración de objetos
+    const { incompleteCount, currentUser } = this.props;
+    const { hideCompleted } = this.state;
     <div className="container">
-
     <header>
 
-     <h1>Agregar preguntas ({this.props.incompleteCount})</h1>
+     <h1>Agregar preguntas ({incompleteCount})</h1>
 
     <label className="hide-completed">
     <input
     type="checkbox"
     readOnly
-    checked={this.state.hideCompleted}
+    checked={hideCompleted}
     onClick={this.toggleHideCompleted.bind(this)}
     />
     
@@ -79,7 +81,7 @@ class App extends Component {
 
     <AccountsUIWrapper />
     
-   { this.props.currentUser ?
+   { currentUser ?
             <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
               <input
                 type="text"
